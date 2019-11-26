@@ -16,7 +16,7 @@
 * * väljastab  >>  biokeemia kirjandus kunstiajalugu matemaatika muusikaajalugu
 
 ### 2. Ülesanne
-Erinevad array sorteerimise lahedused
+* Erinevad array sorteerimise lahedused
 ``` 
 $average = array_sum($tulemused)/count($tulemused);
 echo 'Visetel osales '.count($viskajad). ' noormeest. <br><br>';
@@ -28,7 +28,7 @@ echo 'Parima tulemuse viskas '.$viskajad[$parimIndeks[0]];
 ``` 
 
 ### 3. Ülesanne
-sort() funktsioonide liigid ning nende kasutamine. Mitmemõõdulised massiivid.
+* sort() funktsioonide liigid ning nende kasutamine. Mitmemõõdulised massiivid.
 
 ```
 $raamatud = array(
@@ -46,4 +46,4 @@ foreach ($raamatud as $raamat=>$andmed){
 }
 ```
 
-Väljastab tähestikujärjekorras raamatute pealkirjad sidekriipsuga eraldatult autorist jm andmetest.
+* Väljastab tähestikujärjekorras raamatute pealkirjad sidekriipsuga eraldatult autorist jm andmetest.
