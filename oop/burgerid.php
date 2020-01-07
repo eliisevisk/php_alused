@@ -97,7 +97,7 @@ class LuxBurger extends Burger{
     public function koostaLuxBurger($nimetus, $liha, $sai, $hind)
     {
         return '<div style="text-align:center; padding: 180px; padding-bottom: 0;";> 
-            Teie valitud baasburgeri "'.$this-> $nimetus.'" koostis on: <br>'
+            Teie valitud burgeri "'.$this-> $nimetus.'" koostis on: <br>'
             .$this -> $liha. '<br>'
             .$this -> $sai. '<br>'.
             $this -> luxLisa1.'<br>'.

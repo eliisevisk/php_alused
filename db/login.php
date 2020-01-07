@@ -1,37 +1,30 @@
 <?php
-
-//tekitame ühenduse andmebaasiga
-
-require_once 'config.php'; // loeme andmebaasi conf andmed
-require_once 'db_fnc.php'; // loeme funktsioonid
+// andmebaasiga töötamiseks vajalik info
+require_once 'config.php';
+require_once 'db_fnc.php';
 $ikt = connection(HOSTNAME, USERNAME, USERPASS, DBNAME);
 
 
-
-if (!empty($_POST['nimi']) and !empty($_POST['parool'])){
+// kui vormi kaudu on andmed saadetud
+if(!empty($_POST['nimi']) and !empty($_POST['parool'])){
     $nimi = $_POST['nimi'];
     $parool = $_POST['parool'];
-    //kontrollime kasutaja olemasolu andmebaasis
-    $sql = 'SELECT * FROM kasutajad WHERE nimi="'.$nimi. '" AND parool="'.md5($parool).'";';
+    // kontrollime kasutaja andmebaasis
+    $sql = 'SELECT * FROM kasutajad WHERE nimi="'.$nimi.'" AND parool="'.md5($parool).'"';
     $result = getData($sql, $ikt);
+    // kui selline kasutaja on olemas andmebaasis
     if($result !== false){
-        //avame kasutajale sessiooni
         session_start();
         $_SESSION['kasutaja'] = $result[0]['nimi'];
-        if(!empty($_SESSION['kasutaja'])){
-            echo'<h1>tere tulemast, '.$_SESSION['kasutaja'].'</h1><br>';
-            session_unset();
-        } else {
-            header('index.html');
-        }
+        header('Location: index.php');
     }
 } else {
-    // väljastame vormi
+    // väljastatakse vorm
     echo
-    '<from method="post">
-                Kasutajanimi: <input type="text" name="nimi"><br><br>
-                Parool: <input type="password" name="parool"><br><br>
-                <input type="submit" value="logi sisse">
-                <hr>
-            </from>';
+    '<form method="post">
+    Kasutajanimi: <input type="text" name="nimi"><br>
+    Parool: <input type="password" name="parool"><br>
+    <input type="submit" value="Logi sisse">
+    <hr>
+  </form>';
 }
