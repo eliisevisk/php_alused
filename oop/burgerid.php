@@ -83,10 +83,6 @@ class TervislikBurger extends Burger{
 }
 
 class LuxBurger extends Burger{
-    protected $nimetus = '';
-    protected $liha = '';
-    protected $sai = '';
-    protected $hind;
     protected $luxLisa1 = 'peekon';
     protected $luxLisa2 = 'praesibul';
     protected $luxLisa3 = 'poolmagus sinepi-mee kaste';
